@@ -1,0 +1,58 @@
+\begin{ganttchart}[y unit title=0.4cm,
+y unit chart=0.5cm,
+vgrid,hgrid,
+title height=1,
+today=30,%
+today offset=.5,%
+today label=Now,%
+bar/.style={draw,fill=cyan},
+bar incomplete/.append style={fill=yellow!50},
+bar height=0.7]{1}{30}
+
+ % dies
+ \gantttitle{Phases of the Project}{30} \\
+ \gantttitle{2023}{30} \\
+ \gantttitle{January}{3}
+ \gantttitle{Feb.}{3}
+ \gantttitle{March}{3}
+ \gantttitle{April}{3}
+ \gantttitle{May}{3}
+ \gantttitle{June}{3}
+ \gantttitle{July}{3}
+ \gantttitle{August}{3}
+ \gantttitle{Sept.}{3}
+ \gantttitle{October}{3} \\
+ 
+ % caixes elem0 .. elem9 
+ \ganttgroup[inline=false]{Blockchain}{2}{5}\\
+ \ganttbar[progress=100]{Training}{2}{3} \\
+ \ganttbar[progress=100]{Feature 1}{4}{5} \\
+ \ganttgroup[inline=false]{Backend}{6}{15}\\
+ \ganttbar[progress=100]{Training}{6}{9} \\
+ \ganttbar[progress=100]{Feature 2}{8}{11} \\
+ \ganttbar[progress=100]{Feature 3}{12}{14} \\
+ \ganttbar[progress=100]{Feature 4}{15}{15} \\
+ \ganttgroup[inline=false]{Frontend}{16}{30}\\
+ \ganttbar[progress=100]{Feature 5}{16}{18} \\
+ \ganttbar[progress=100]{Feature 6}{19}{21} \\
+ \ganttbar[progress=100]{Feature 7}{22}{25} \\
+ \ganttbar[progress=100]{Feature 8}{26}{28} \\
+ \ganttbar[progress=25]{Feature 9}{29}{30} \\
+
+ 
+ % relacions
+ \ganttlink{elem1}{elem2}
+ \ganttlink{elem2}{elem3}
+ \ganttlink{elem2}{elem8}
+ \ganttlink{elem4}{elem5}
+ \ganttlink{elem5}{elem6}
+ \ganttlink{elem6}{elem7}
+ \ganttlink{elem5}{elem10}
+ \ganttlink{elem7}{elem11}
+ \ganttlink{elem4}{elem9}
+ \ganttlink{elem9}{elem11}
+ \ganttlink{elem11}{elem12}
+ \ganttlink{elem11}{elem13}
+
+
+\end{ganttchart}

@@ -1,0 +1,637 @@
+\documentclass[a4paper,12pt]{article}
+
+\input{tools/packages.tex}
+\input{tools/styles.tex}
+\input{tools/acro.tex}
+\input{glossary}
+
+\begin{document}
+
+%%% COVER %%%
+\fancypagestyle{alim}{\fancyhf{}\renewcommand{\headrulewidth}{0pt}
+\cfoot{\includegraphics[height=2.2cm]{img/logos/logo_telecos.png}}
+}
+\thispagestyle{empty}
+\begin{center}
+{\sffamily 
+\resizebox{0.8\textwidth}{!}{\includegraphics{img/logos/upc_completo+telecos.png}}\\
+\vspace{1cm}
+{\Huge Development of a DAPP}\\
+\vspace{0.5cm}
+{\color{black}\hrule height 1pt}
+\vspace{1cm}
+{\large{Master Thesis\\
+submitted to the Faculty of the \\
+Escola T\`ecnica d'Enginyeria de Telecomunicaci\'o de Barcelona \\
+Universitat Polit\`ecnica de Catalunya \\
+by\\
+\vspace{0.4cm}
+Gerard Castell Ferreres}}
+
+\nocite{*} % only if you no use \cite{}
+
+\vspace{1.5cm}
+
+{In partial fulfillment\\
+of the requirements for the master in\\
+\textit{Advanced Telecommunication Technologies} \textbf{ENGINEERING}}
+
+\vspace{2cm}
+
+{{Advisor: Jose Luis Muñoz Tapia}} \\
+{{Barcelona, October 20, 2023}}
+\thispagestyle{alim}
+}
+
+%%% INDEX %%%
+\end{center}
+\newpage
+\tableofcontents
+
+%%% LISTS %%%
+\newpage
+\listoffigures
+\listoftables
+
+\printglossary[type=\acronymtype]
+
+%%% REVISION %%%
+\newpage
+\input{revision_history}
+
+%%% ABSTRACT %%%
+\clearpage
+\newpage
+\section*{Abstract}
+
+{This thesis explores the development of a Decentralized Application (dapp). The fast growth of blockchain technology has provided an opportunity to revolutionize lots of industries by enhancing transparency, security, and accessibility. This research investigates the architectural design, implementation, and deployment of a dapp that leverages smart contracts to facilitate car insurance policy creation and management.
+
+Key objectives include the development of a user-friendly interface for policyholders, where they can obtain policy proposals and when purchased ensure a secure, tamper-resistant policy ledger. The study assesses the technical and practical aspects of blockchain-based car insurance, emphasizing the advantages of decentralization in reducing fraud, optimizing administrative processes, and enhancing policyholder trust.
+
+The findings highlight the potential of dapps to disrupt traditional insurance models, emphasizing their role in encouraging trust and transparency while streamlining policy management processes.}
+
+\input{introduction}
+
+%%% StateOfTheArt %%%
+\clearpage\section{State of the art of the technology used or applied in this thesis}
+  
+\input{blockchain}
+\bigskip
+
+\input{ethereum}
+
+%%% METHODOLOGY %%%
+\clearpage\section{Project development }
+\input{project-development}
+
+%%% RESULTS %%%
+\clearpage\section{Results}
+\input{result}
+
+%%% BUDGET %%%
+\clearpage
+
+\section{Budget}
+\input{budget}
+%%% ENVIRONMENT %%%
+\clearpage
+
+\section{Environment Impact}
+{
+The Ethereum consensus was previously based on \acrlong{pow}, which mining process consumes a significant amount of energy to resolve the complex cryptographic puzzle. 
+
+Ethereum was concerned about this issue and migrated to \acrlong{pos} consensus finishing in September 2022, which drastically reduced the energy consumption since now miners do not race to find the hash. The energy used for \acrshort{pos} depends on the sources so it has even less carbon footprint if it comes from renewable energy sources.
+
+The environmental impact of the Ethereum blockchain versus a traditional backend with a database model depends on various factors but are quite similar models in terms of energy consumption and possible solutions. The transition to PoS and the use of renewable energy sources are positive steps for reducing the environmental footprint of blockchain technology. However, it is essential to consider efficiency, scaling, and the energy mix to assess the overall impact accurately.
+}
+
+%%% CONCLUSION AND FUTURE %%%
+\clearpage
+\section{Conclusions and future development }
+
+{
+In this thesis, I have converted a traditional insurance model to a blockchain-based approach from end to end. The experiment is considered successful since the resulting dapp gathers all the pieces needed to offer a realistic digital product. These pieces include a frontend web application to provide access to the dapp for the users, a traditional backend server and database to generate and store the policy proposals, and eventually several smart contracts in charge of managing the core business logic.
+
+It is been really gratifying to have developed the entire software with technology ahead of the curve, which has given me a wide knowledge about how to build an MVP of a product, taking always into account the user as the focus of the product. It is been a very large project but without any doubt, I have enjoyed every line of code I have written.
+
+About blockchain technology, I have to admit that the more I read about it the more impressed I was. To figure out how transactions can be programmable brings to my mind a lot of business cases to apply in which all parties involved would benefit from. It truly represents a game changer in a moment where the big companies have our data ownership completely. Without any doubt, I would love to see how companies start migrating toward Web 3.0 models where all transactions and data live in a more secure, traceable and censorship-resistance ecosystem. However, it represents a huge technical investment that without representing a clear benefit for companies I do not believe that they will carry out.
+
+Moreover, it is very satisfactory to know that this exact dapp could be deployed in a real-world scenario without a few modifications. Even though, if I get realistic I consider most end-users might find to understand the Ethereum basis and use this kind of tool that really leverages blockchain power cumbersome. In favor of reducing this effect, software solutions built on top of the Ethereum layer, such as browser wallets like Metamask, are appearing in order to make it more accessible and understandable. Nevertheless, the migration of the Web 2.0 models towards blockchain-based solutions will have to happen slowly and incrementally, trusting part of the logic and data managed in centralized services taking care of not eliminating the benefits of blockchain. It is a good example of this the off-blockchain server that generates and stores proposals in the experiment which is forced to exist in order to not differ too much from the original insurance business model.
+
+From my point of view, we are still far from using daily dapps for our regular tasks but as technology advances, it may represent at some point a crucial player to take advantage of. In the same way that large-language models have nowadays exploded in popularity and demand and most companies are trying to include them in their stack to improve their product value, perhaps at some point, blockchain will be the key to offering these valuable solutions too. 
+
+In brief, we cannot force users to use a specific technology but that technology must offer a solution to the users in order to be used.
+
+}
+
+%%% GLOSSARY %%%
+\clearpage
+\printglossary
+
+%%% BIBLIOGRAPHY %%%
+\newpage
+
+\medskip
+\bibliographystyle{unsrt}
+\bibliography{bibliography.bib}
+
+%%% ANNEX %%%
+\clearpage
+\newpage
+
+\begin{appendices}
+
+\section{Deployment scenarios for a dapp}
+\label{appendix:deployment-dapp}
+{
+{The hardware required to deploy the dapp depends on the use of it, so we can draw two scenarios:}
+\begin{itemize}
+    \item Development scenario. This case is used by developers to implement the software features before releasing it to a real scenario, well-known as Production. In this scenario, we just want to try the code locally and we do not need to make it public and accessible through the Internet for other users but us. This is the cheapest use case due to we can locally serve all the content on our computer. Assigning a different port for each process we can simulate a network where all the requests and communications happen through the different protocols like a real case would do. Both frontend and backend frameworks offer scripts out of the box to serve it locally. About the blockchain, we can simulate a local Ethereum network thanks to the Hardhat tool \cite{hardhat_network}. This tool emulates and hosts a real configurable network and, what is more, provides out-of-the-box a bunch of fake Ethereum accounts with Ethers to play around in our sandbox. With these resources at hand, we can create and deploy a fully functional dapp with the capability to test it using simulated assets, all with a standard computer. This entire process can be accomplished without the need for an internet connection. 
+    
+    \item Production scenario. If we want to monetize our dapp with real users we will have to deploy it properly in order to make it accessible through the Internet. There are several points to consider:
+    \begin{itemize}
+        \item Blockchain network. If we want to work with real Ethers, the Ethereum tokens, we will have to use the main net. To do so, we will have to pay for the deployment of the smart contract.
+        \item Frontend app, backend off-blockchain and the database. We will have to host them on public servers and connect them. Then, we will need a cloud service provider such as Amazon Web Service\cite{aws} or Google Cloud Platform\cite{gcp} in order to host such servers. Moreover, we must consider the traffic scale. We should increase the number of machines and/or their power according to the traffic received and evaluate which point represents a bottleneck. If the amount of visits expected is really high, we may consider more cloud pieces to reduce the overload such as CDNs. A whole exercise of cost optimization can be performed here in order to optimize the user experience versus the cost of the infrastructure.
+    \end{itemize}
+\end{itemize}
+{Therefore, to carry out this project I considered the developer scenario, given that the main goal of this project is for academic purposes. However, if at some point we head for monetizing the dapp, we will have to scale the platform and pay for the allocated resources in the cloud according to the traffic volume.}
+}
+
+\section{Hashing}
+\label{appendix:hashing}
+{Hashing is the process of transforming any given key or a string of characters into another value. This is usually represented by a shorter, fixed-length value or key that represents and makes it easier to find or employ the original string.
+
+The most popular use for hashing is the implementation of hash tables. A hash table stores key and value pairs in a list that is accessible through its index. Because key and value pairs are unlimited, the hash function will map the keys to the table size. A hash value then becomes the index for a specific element.
+
+A hash function generates new values according to a mathematical hashing algorithm, known as a hash value or simply a hash. To prevent the conversion of hash back into the original key, a good hash always uses a one-way hashing algorithm.
+
+Hashing is relevant to data indexing and retrieval, digital signatures, and cryptography. }
+
+\section{Proof of Work}
+\label{appendix:proof-of-work}
+{
+There is a kind of blockchain, like Ethereum, that is defined as a permissionless distributed ledger, which means there is no need to ask for permission to participate in consensus. If everyone can be a member of the network, we have to ensure that no one corrupts the network. The Bitcoin's creator, {Satoshi Nakamoto}\cite{sathoshi}, relates the capacity to influence the transaction order to the work that you do:
+\begin{itemize}
+    \item Nodes participating in consensus are called \textbf{miners}.
+    \item Miners build consensus using an algorithm called \textbf{\acrlong{pow}}.
+    \item Miners participating in \acrshort{pow} spend money on equipment and electricity.
+\end{itemize}
+This way if you want to corrupt the network it will cost you a lot of money. Moreover, how does it motivate the miners to behave honestly? It applies game theory: workers get rewarded for their work with digital money known as \textbf{crypto}.
+
+Miners are in charge of storing and processing all the state of the blockchain. Such a state is represented by blocks, which are chained and ordered one by one as they are being processed. Each block contains a bunch of transactions and is chained to the previous block with a hash pointer, so if we process all blocks we obtain all the history of committed transactions ordered, which represents the current state of the ledger. Hence, we can define mining as finding a consensus, which is a very costly process.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=14cm]{img/chapter_2/blocks.png}
+\caption[Chaining blocks]{\footnotesize{Chaining blocks.}}
+\label{fig:chaining_blocks}
+\end{figure}
+
+Mining is the process of introducing a new valid block to the network. To do so, they must perform the following steps: 
+\begin{enumerate}
+    \item \textbf{Transaction validation.} When a user initiates a transaction, it is broadcast to the network. Before being added to the blockchain, these transactions must be validated to ensure they adhere to the network's rules and that the sender has sufficient funds to make the transfer.
+    \item \textbf{Candidate block creation.} Miners create the potential block by gathering a collection of validated transactions, known as ``mempool''. In addition, the new block must include a reference to the previous block identifier, which is a unique hash. This way we ensure a chronological order.
+    \item \textbf{Proof of Work.} Before a miner can add their candidate block to the blockchain, they must solve a complex cryptographic puzzle. The operation consists of finding a \textbf{\gls{nonce}}, which will be the identifier of this new block so must be unique. This nonce has to be generated from hashing the content of the block itself and the challenge is that the hash must be led with a certain number of zeros. This property is known as \textit{``difficulty''}. Finding these hashes supposes a significant computational power.
+        \begin{figure}[H]
+        \centering
+        \includegraphics[width=12cm]{img/chapter_2/nonce-computation.png}
+        \caption[Difficulty in nonce computation]{\footnotesize{Difficulty in nonce computation.}}
+        \label{fig:Nonce-computation}
+        \end{figure}
+        
+    \item \textbf{Competition.} Multiple miners on the network compete to solve the puzzle first like a race. Miners have to continuously calculate different nonce values until one of them successfully fits all the conditions. We can compare it to a lottery, therefore, it guarantees no single entity monopolizes the block creation.
+    \item \textbf{Consensus and block addition.} Once a miner successfully solves the puzzle and adds their candidate to the blockchain it communicates the network through the ``\textit{\Gls{gossip}}". Then, other participants of the network can easily verify that the solution of your block is correct, so the consensus is reached and the new block becomes part of the blockchain.
+\end{enumerate}
+
+{To compensate the miners after accomplishing the hard task of mining there are two kinds of rewards:}
+\begin{itemize}
+    \item The first one is the coinbase reward. It is decided by governance consensus and it is processed at the first transaction of the block added. This is the only way of creating money in the system automatically.
+    \item The second one is collecting fees from the transactions included in the block.
+\end{itemize}
+
+Nowadays, the difficulty is already to the point where it requires over a quadrillion (15 zeros) hashes to solve a block. Moreover, the probability of solving the block is fewer than one in a billion. It is also important to mention that the difficulty is adjusted to produce a constant average inter-block time (after a certain number of blocks). Inter-block time is like the \textit{blockchain clock} and allows engineering: halving date, network capacity, etc. In Bitcoin, the time inter-block is 10 minutes, whilst in Ethereum is 15 seconds, which obviously is a benefit to consider for dapps deployed in this network.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=10cm]{img/chapter_2/difficulty.png}
+\caption[Fixed difficulty compared to fixed time]{\footnotesize{Fixed difficulty compared to fixed time.}}
+\label{fig:difficulty_comparison}
+\end{figure}
+
+History is not immediately consistent in PoW because finality is probabilistic. We have to wait to consider the blocks written in the chain immutable. For instance, Bitcoin recommends waiting 6 blocks, which is equivalent to 1 hour, to confirm a transaction.
+
+{In a nutshell, Proof of Work consensus can be summarized with the following ideas:}
+\begin{itemize}
+    \item Proof of Work consists of solving a cryptographic puzzle built with a hash.
+    \item Each miner is solving its own puzzle, i.e. mining its own block.
+    \item Notice that the nonce is valid for a particular block only.
+    \item No one needs permission to participate in the consensus and no one (banks, companies) has privileges to solve the challenge: To solve the challenge faster you need more hash power but ”anyone” can do it by buying more equipment and wasting more electricity.
+\end{itemize}
+}
+
+\section{Proof of Stake}
+\label{appendix:proof-of-stake}
+{
+{Ethereum initially was based on \acrlong{pow}, but in 2022 switched the mechanism to \acrfull{pos}\cite{proof-of-stake}. The main reasons were that it was less energy-intensive, more secure and better for implementing more scalable solutions.
+
+In \acrlong{pos}, the participants, henceforth known as \textbf{validators}, put something valuable into the network that can be destroyed if they act dishonestly. In the case of Ethereum, validators stake capital in the form of ETH, into a smart contract on the network. The validators are in charge of checking that new blocks inserted into the network are valid and, occasionally they also create new blocks. If they behave dishonestly, for example by proposing multiple blocks instead of one or sending invalid blocks, then the consensus mechanism will destroy partially or completely their staked ETH.
+
+Whereas under Proof of Work, the timing of blocks is determined by the difficulty as explained in the Proof of Work subsection, in Proof of Stake the timing is fixed. This time is divided into slots of 12 seconds and epochs, composed of 32 slots. Now we can evaluate how this mechanism gets a transaction executed:
+}
+
+\begin{enumerate}
+    \item Users create and sign transactions, where they define the amount of gas they would pay as a \gls{tip} for validators to encourage them to include the transaction in their blocks. 
+    \item The transaction is then validated by a miner, which also checks whether the sender has enough ETH to pay the transaction.
+    \item Then the participant adds the transaction to his mempool of pending transactions and broadcasts the network through the \gls{gossip}, so other nodes will add it to their local mempool too.
+    \item A network node is selected pseudo-randomly with the aim of proposing a block for the current slot, which will include such a transaction. This node is responsible for creating and adding the next block to the blockchain. To do so, the node runs in parallel with the execution client and the consensus client: the execution client bundles a bunch of transactions from his mempool into an \textbf{execution payload} and computes locally the new state. Such information is sent to the consensus client which wraps the payload into a \textbf{beacon block} that includes extra information about rewards, penalties, etc.
+    \item Then, the nodes of the network receive the new beacon block and the execution client re-executes the transactions locally to ensure the proposed state is valid. Thereupon, the validator client attests that the block is valid and then it represents the next block of the network from its point of view. The block with the greatest weight of attestations is considered the next block of the network and the consensus is achieved.
+    \item The transaction can be considered finalized whether it is part of a chain with a \textbf{supermajority link} between two checkpoints. A checkpoint is set at the beginning of an epoch and this is due to just a subset of validators attesting in each slot, whilst all validators attest during an epoch. Hence, we can only ensure the transaction is finalized between two checkpoints, a supermajority link since the 66\% of total staked ETH on the network agrees.
+\end{enumerate}
+
+{\acrlong{pos} was created to enhance the conditions of \acrlong{pow}. Staking makes it easier for individuals to participate since a validator node can run on a usual laptop and staking pools allow users to stake without having 32 ETH. Furthermore, it is more decentralized and \glspl{economy-of-scale} is much better than mining with \acrshort{pow} since it can apply economic penalties for misbehavior, making \glspl{51-attack} more costly. Moreover, it is more crypto-economic resilient. If we focus on the negative we have to mention that it is really a new player so it is not as battle-tested compared to \acrlong{pow} and it is much more complex to implement and understand because users need to run three pieces of software to participate in the mining.}
+
+}
+
+\section{Verify transactions with Merkle proofs}
+\label{appendix:merkle-tree}
+{Transactions in blockchain are verified using a cryptographic structure called \textit{Merkel tree}, also known as a binary hash tree. The Merkle tree ensures the integrity of a transaction and is really efficient to verify. To do so, the tree is constructed by hashing pairs of transactions iteratively until a single root hash is obtained. Such a node is called Merkle Root.
+
+In the interest of verifying that a transaction is included in a block, a \textit{Merkle Proof} is generated. This proof consists of a path from the transaction's leaf node to the Merkle root, including the hash of sibling nodes along the way. As you can observe in figure \ref{fig:merkle-proof}, the root contains a contribution from all the leaves, so for \textit{n} leaves need $\log_2 n$ levels. Therefore, proofs are size $O(\log_2 n)$.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=14cm]{img/chapter_2/merkle_proof.png}
+\caption[Merkle proof]{\footnotesize{Merkle proof.}}
+\label{fig:merkle-proof}
+\end{figure}
+
+This merely represents the way a transaction is connected to the root, so to validate the transaction we just have to hash it with the sibling hashes and following the path indicated we obtain the Merkle root. If the computed root is the same as the one coded in the block header, we can confirm the transaction is included in the block, hence it takes part in the blockchain's history.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=14cm]{img/chapter_2/merkle_verification.png}
+\caption[Merkle root]{\footnotesize{Merkle root in block header.}}
+\label{fig:merkle-root-block-header}
+\end{figure}
+
+{Merkle proofs enhance the security and efficiency of blockchain networks by providing a way to validate transactions without the need to verify the entire block. This method ensures data integrity and allows network participants to trust the blockchain's history while conserving computational resources. It's a fundamental component of the blockchain's transparency and trustworthiness.} 
+}
+
+\section{Ethereum client}
+\label{appendix:ethereum-client}
+{
+Ethereum is, in essence, a group of computers inter-communicated running the same software that forms a distributed network. Such computers are known as nodes, and the software they run consists of two separate clients, the execution client and the consensus client, that communicate with each other and with the network:
+
+\begin{itemize}
+    \item The execution client or Execution Engine listens to the network for new transactions. When it receives one it is executed in the EVM. Moreover, it also stores the latest state and database of all current Ethereum data.
+    \item The consensus client or Beacon Node implements the \acrlong{pos} algorithm. It basically enables the node to obtain agreement based on validated data from the execution client. Furthermore, there is a third piece of software called "\textit{validator}`` that can be added to the consensus client, enabling the node capacity to participate in securing the network.
+\end{itemize}
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=10cm]{img/ethereum/eth1eth2client.png}
+\caption[Simplified diagram of how clients of a node work]{\footnotesize{Simplified diagram of how clients of a node work}}
+\label{fig:node-clients}
+\end{figure}
+
+}
+
+\section{Anatomy of smart contracts}
+\label{appendix:smart-contract}
+{A smart contract is basically data and functions that run on Ethereum when it receives a transaction. There are some concepts we have to consider about the data:
+\begin{itemize}
+    \item Modify data storage in a smart contract cost gas.
+    \item There two types of data: \textbf{memory} and \textbf{storage}:
+    \begin{itemize}
+        \item Storage is data permanently recorded on the blockchain and needs to be typed so when it compiles the contract can keep track of how much storage it needs.
+        \item Memory is where the smart contract stores the data that just lives during the contract function's execution. Since these are not permanent, they are much cheaper to use.
+    \end{itemize}
+    \item In addition, there are some kind of environment variables that provide data about the blockchain or current transaction, like the sender address or the block timestamp.
+\end{itemize}
+
+If we focus now on the functions, simplifying the idea they can just get information or set information in response to incoming transactions. We can divide the function calls into two types:
+\begin{itemize}
+    \item \textbf{Internal} functions which do not create an \acrshort{evm} call and can just be called from the current contract or derived ones.
+    \item \textbf{External} functions which do create an \acrshort{evm} call and are part of the \acrshort{abi}, so they can be called from other contracts.
+\end{itemize}
+
+Another type of classification which also applies to data is:
+\begin{itemize}
+    \item \textbf{Public} functions which can be called internally and externally.
+    \item \textbf{Private} functions which are only visible for the contract but not derived ones.
+\end{itemize}
+
+The functions of a smart contract can have different purposes:
+\begin{itemize}
+    \item \textbf{View functions} promise not to alter the data of the contract. For example, we can think of getter functions. 
+    \item \textbf{Pure functions} promise not to either read or change data of the contract. For example, we can think about an operation function that given two integers returns the sum of them. 
+    \item \textbf{Payable functions} functions that can receive ethers as input. 
+    \item \textbf{Constructor functions} are only executed once at contract deployment. Typically, state variables are initialized here.
+    \item \textbf{Built-in functions} that the \acrshort{evm} know how to interpret for instance \textit{address.send()} in Solidity, which is use to send \acrshort{eth} from the smart contract to that address.
+    \item \textbf{Writing functions} which are the remaining can receive typed parameter variables and return typed value if desired. Moreover, it can be declared as internal/external or pure/view/payable. 
+\end{itemize}
+} 
+
+\section{Evolution of the Web}
+\label{appendix:web-evolution}
+{The web that we use daily has been constantly evolving since it was created. The origin is defined at CERN in 1989, when Tim Berners-Lee was developing the protocols that would become the World Wide Web with the aim of creating open and decentralized protocols that allow to sharing of information from anywhere on Earth based on a \textbf{read-only model}, like a huge Wikipedia. This first approach is known as ``\textit{Web 1.0}" and the idea was maintained until roughly 2004.
+
+With the emergence of social media platforms, the read-only model was insufficient and unable to reach such requirements. This is why the web evolved into a \textbf{read-write} model. Instead of only companies providing content to users they started to provide web applications and platforms to share user content and offer user-to-user interactions. This model supposed a revolution across the world in the sense of communication. Consequently, as more people were engaged to this platform more and more companies began to offer this kind of products and services to attract traffic and therefore, it caused the age of targeted advertising. It is important to highlight the major drawback of this ecosystem, to earn money from user content they need intermediaries, and that implies a forced trust for better or for worse. This model has been the standard until the present time.
+
+As time went by, disruptive and very technical ideas such as blockchain appeared. This kind of technology has unlocked a lot of ideas to implement and eventually, in 2014 Ethereum proposed a solution for a problem that many early crypto adopters realized: the Web granted all the power of the data to private companies, which required too much trust. Thus, the Web is evolving again to offer a new era of a better internet. Blockchain-based, ``\textit{Web 3.0}" proposes a \textbf{read-write-own} model, where ownership gets distributed amongst content-generators and users. It is also permissionless since everyone has equal access to participate in the Web. In addition, payments and transactions occur straightforwardly without either intermediaries or opaque processes.
+
+}
+
+\section{Policy smart contract}
+\label{appendix:policy-sc}
+\begin{lstlisting}
+// SPDX-License-Identifier: GPL-3.0
+pragma solidity ^0.8.9;
+
+struct Claim {
+    string title;
+    address expertAddress;
+    uint incidentDate;
+    uint expenses;
+    bool approved;
+    uint resolveDate;
+    bool isResolved;
+}
+
+
+contract Policy {
+    string riskData;
+    uint256 premium;
+    address owner;
+    address public factoryAddress;
+    uint endDate;
+    uint renewalDate;
+    uint startDate;
+    mapping(uint256 => Claim) claims;
+    uint256[] claimIdList;
+
+    event Creation(address policyholderAddress);
+    event Cancelation(uint endDate);
+    event ClaimDeclaration(uint claimId);
+    event ClaimApproved(uint claimId);
+    event ClaimDeclined(uint claimId);
+    event Renewal(uint endDate);
+
+    modifier onlyFactoryOrOwner(){
+        require(msg.sender == factoryAddress || msg.sender == owner, "Just the policyholder or the insurance company can perform this action");
+        _;
+    }
+
+    modifier onlyOwner(){
+        require(msg.sender == owner, "Just the policyholder can perform this action");
+        _;
+    }
+
+    modifier onlyFactory(){
+        require(msg.sender == factoryAddress, "Just the insurance company can perform this action");
+        _;
+    }
+
+    modifier isActive(){
+        require(endDate > block.timestamp && renewalDate > block.timestamp, "Policy is not active");
+        _;
+    }
+
+    constructor(string memory _proposalData, uint256 _premium, address _owner, uint256 _endDate){
+        require(_endDate > block.timestamp, "Renewal date has to be upcoming");
+        require(_premium > 0 , "Required a premium to activate the policy");
+        riskData = _proposalData;
+        premium = _premium;
+        owner = _owner;
+        factoryAddress = msg.sender;
+        startDate = block.timestamp;
+        endDate = _endDate;
+        renewalDate = _endDate;
+
+        emit Creation(owner);
+    }
+
+    function cancelPolicy() onlyFactory() isActive external {
+        endDate = block.timestamp;
+        emit Cancelation(endDate);
+    }
+
+    function makeClaim(uint256 claimId, Claim memory _claim) onlyOwner isActive external {
+        Claim memory newClaim = _claim;
+        claims[claimId] = newClaim;
+        claims[claimId].isResolved = false;
+        emit ClaimDeclaration(claimId);
+    }
+
+
+    function approveClaim(uint256 claimId , uint256 claimExpenses) onlyFactory external {
+        Claim storage claim = claims[claimId];
+
+        resolveClaim(claimId, true);
+        claim.expenses = claimExpenses;
+        emit ClaimApproved(claimId);
+    }
+
+    function declineClaim(uint256 claimId) onlyFactory external{
+        resolveClaim(claimId, false);
+        emit ClaimDeclined(claimId);
+    }
+
+    function resolveClaim(uint256 claimId, bool isApproved) internal {
+        Claim storage claim = claims[claimId];
+        require(claim.isResolved == false, "Claim is already resolved");
+
+        claim.resolveDate = block.timestamp;
+        claims[claimId].isResolved = true;
+        claim.approved = isApproved;
+
+    }
+
+    function renew(uint newEndDate) onlyFactory external returns (uint){
+        require(newEndDate > endDate, "New end date has to be after the current one");
+        endDate = newEndDate;
+        renewalDate = newEndDate;
+
+        emit Renewal(endDate);
+        return renewalDate;
+    }
+
+
+    function getOwnerAddress() onlyFactoryOrOwner external view returns (address) {
+        return owner;
+    }
+
+    function getClaim(uint256 claimId) onlyFactoryOrOwner external view returns (Claim memory){
+        return claims[claimId];
+    }
+
+    function getClaimsList() onlyFactoryOrOwner external view returns (uint256[] memory){
+        return claimIdList;
+    }
+
+    function getEndDate() onlyFactoryOrOwner external view returns (uint){
+        return endDate;
+    }
+
+    function getStartDate() onlyFactoryOrOwner external view returns (uint){
+        return startDate;
+    }
+
+    function getRenewalDate() onlyFactoryOrOwner external view returns (uint){
+        return renewalDate;
+    }
+
+    function getRiskData() onlyFactoryOrOwner external view returns (string memory){
+        return riskData;
+    }
+
+     function getPremium() onlyFactoryOrOwner external view returns (uint256){
+        return premium;
+    }
+
+    function getIsActive()onlyFactoryOrOwner external view returns (bool){
+        return endDate > block.timestamp;
+    }
+
+}
+\end{lstlisting}
+
+\section{Factory smart contract}
+\label{appendix:factory-sc}
+\begin{lstlisting}
+// SPDX-License-Identifier: GPL-3.0
+pragma solidity ^0.8.9;
+
+import "./Policy.sol";
+
+
+contract Factory {
+    address payable public insuranceAddress;
+    uint256 minimumBudget = 0.999 ether;
+    mapping(address => address[]) policiesMapping;
+    mapping(address => bool) private claimEvaluators;
+    event PolicyCreated(address owner, uint when);
+    event PolicyCanceled(address policy, uint when, uint256 amount);
+    event PolicyRenewal(address policy, uint newDate, uint renewalAmount);
+    event ClaimApproved(address policyAddress ,uint256 claimId , uint256 claimExpenses);
+    event ClaimDeclined(address policyAddress, uint256 claimId);
+    event BudgetAdded(uint amount);
+    event BudgetWithdrawal(uint amount);
+
+    constructor() payable {
+        require(msg.value >= minimumBudget, "Minimum budget is not achieved to start an Insurance Smart Contract");
+        insuranceAddress = payable(msg.sender);
+    }
+
+
+    modifier companyOnly {
+        require(msg.sender == insuranceAddress, "Just the insurance company can perform this action");
+        _;
+    }
+
+     modifier claimEvaluatorsOnly {
+        require(msg.sender == insuranceAddress || isClaimEvaluatorKnown(msg.sender), "Required a valid evaluator approved by the company");
+        _;
+    }
+
+    function addBudget() companyOnly public payable returns (uint256){
+        emit BudgetAdded(msg.value);
+        return address(this).balance;
+    }
+
+    function withdrawBudget(uint256 amount) companyOnly public returns (uint256){
+        require(amount < address(this).balance, "There is not enough amount to withdraw");
+        insuranceAddress.transfer(amount);
+        emit BudgetWithdrawal(amount);
+        return address(this).balance;
+    }
+
+    function createPolicy(string memory proposalData, uint endDate) public payable returns (address){
+        require(msg.value > 0, "To create a policy you must pay a premium.");
+        Policy policyContract = new Policy( proposalData, msg.value, msg.sender, endDate);
+        address policyAddress = address(policyContract);
+        address holderId = msg.sender;
+        policiesMapping[holderId].push(policyAddress);
+
+        emit PolicyCreated(msg.sender, block.timestamp);
+        return policyAddress;
+    }
+
+    // Renews the policy and return the new end date.
+    function renewPolicy(address policyAddress, uint newEndDate, uint renewalAmount) public payable returns (uint){
+        require(msg.value > renewalAmount, "To renew a policy you must pay a premium.");
+        Policy policyContract = Policy(policyAddress);
+        require(msg.sender == policyContract.getOwnerAddress(), "Just the policyholder of the policy is able to renew it.");
+        emit PolicyRenewal(policyAddress, newEndDate, renewalAmount);
+
+        return policyContract.renew(newEndDate);
+    }
+
+
+    function approveClaim(address policyAddress ,uint256 claimId , uint256 claimExpenses) claimEvaluatorsOnly public {
+        require(claimExpenses < address(this).balance, "Insufficient balance to pay the claim.");
+
+        Policy policy = Policy(policyAddress);
+        policy.approveClaim(claimId, claimExpenses);
+
+        address payable holderAddress = payable(policy.getOwnerAddress());
+        emit ClaimApproved( policyAddress, claimId, claimExpenses);
+        holderAddress.transfer(claimExpenses);
+    }
+
+    function declineClaim(address policyAddress, uint256 claimId) claimEvaluatorsOnly public {
+        Policy policy = Policy(policyAddress);
+        emit ClaimDeclined(policyAddress, claimId);
+        policy.declineClaim(claimId);
+    }
+
+    function addEvaluator(address newAddress) companyOnly public {
+        claimEvaluators[newAddress] = true;
+    }
+
+    function changeEvaluatorValue(address evaluator, bool value) companyOnly public {
+        claimEvaluators[evaluator] = value;
+    }
+
+    function isClaimEvaluatorKnown(address checkAddress) companyOnly public view returns(bool) {
+        return claimEvaluators[checkAddress];
+    }
+
+    function getHolderPolicies() public view returns (address[] memory){
+        return policiesMapping[msg.sender];
+    }
+
+    function cancelPolicy(address addressPolicy)  public {
+        Policy policy = Policy(addressPolicy);
+        address owner = policy.getOwnerAddress();
+
+        require(msg.sender == owner || msg.sender == insuranceAddress, "Just the policyholder of the policy is able to cancel it.");
+        policy.cancelPolicy();
+
+        uint premium = policy.getPremium();
+        uint256 startDate = policy.getStartDate();
+        uint256 renewalDate = policy.getRenewalDate();
+        uint256 cancellationDate = policy.getEndDate();
+
+        uint256 timeNotEnjoyed = renewalDate - cancellationDate;
+        uint256 totalTimeSpan = renewalDate - startDate;
+
+        uint256 timePercentage = (timeNotEnjoyed * 100) / totalTimeSpan;
+        address payable holderAddress = payable(owner);
+        uint256 amountToReturn = premium * timePercentage / 100;
+
+        require (amountToReturn < address(this).balance, "Insufficient balance to pay the cancellation.");
+
+        holderAddress.transfer(amountToReturn);
+        emit PolicyCanceled(addressPolicy, cancellationDate, amountToReturn);
+    }
+}
+
+
+\end{lstlisting}
+
+
+\end{appendices}
+
+\end{document}

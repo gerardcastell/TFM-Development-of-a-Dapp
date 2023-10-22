@@ -1,0 +1,109 @@
+\clearpage
+\newpage
+\section{Introduction}
+{In today's highly digitized world, everyone and everything is connected and nearly every routine task we carry out relies on a piece of technology to be accomplished. Unfortunately, many of these processes are complex, have a lack of transparency or involve intermediaries which makes them slow and tedious. Companies and third parties have in their hands the governance of our information, which currently is the most powerful asset.}
+
+{The Internet plays a crucial role in these interactions since it has become the main connectivity channel. However, it is characterized by a fundamental centralization of data, power, and control. Corporations have monopolized user data, platform access, and content distribution, raising concerns about privacy, censorship, and fairness. In response to these challenges, the next generation of the Internet, well-known as Web 3.0, along with decentralized applications (dapps) have emerged in order to offer a more decentralized, open, and user-centric digital experience.}
+
+{The emergence of Web 3.0 and dapps represents a huge shift in the way we interact with and perceive the digital world. This transformation is driven by a combination of technological innovation, a growing desire for transparency and user control, and a fundamental rethinking of the traditional web's limitations, which opens up new possibilities for innovation, collaboration, and trust on the internet, redefining the way we engage with the digital world.}
+
+\bigskip
+
+\subsection{Statement of purpose}
+
+{Given the emergence of dapps, this thesis aims to figure out how a traditional digital product can adapt its tech stack to harness the capabilities and advantages provided. The main objective is to develop and implement a decentralized application for a real case scenario in order to understand how it achieves to make apps user-centric and learn from the bowels which are the protocols and software that have evolved to implement such applications.}
+
+\subsubsection{What dapps offer over usual web applications?}
+Continuously, we need to interact with companies in a lot of scenarios such as checking where a delivery is in real-time, complaining about a service, canceling a purchase, making a reservation, and so on. For nearly all of those cases, we use their web application to carry out such communication. This way, the companies use their technology, such as web applications, to provide just the data that they want to their consumers. In this process, we should be concerned about two worrying topics:
+\begin{enumerate}
+    \item \textbf{Data Ownership.} The information exchanged between consumers and companies is often sensitive and personal. When we interact with these corporate web applications, we must consider the extent to which our personal data is collected, utilized, and potentially monetized by these companies. 
+    \item \textbf{Centralized Control and Trust.} The centralization of technology platforms in the hands of companies introduces a reliance on trust. We entrust these entities with our data, often without direct insight into how it is managed and secured. Centralized systems are susceptible to data breaches or manipulation, which can leave consumers at a disadvantage.
+\end{enumerate}
+
+{Decentralized applications appear as an attempt to solve these issues. Dapps are software applications built over a decentralized network, usually blockchain technology such as smart contracts to automate and enforce rules within the application. Smart contracts are self-executing code that runs on a blockchain and automatically runs a set of predefined rules without the need for intermediaries. Thanks to these features, the dapps can address the data privacy and ownership problem:}
+
+\begin{itemize}
+    \item \textbf{User-controlled data.} Users are able to see the code that rules the smart contracts, what is to say, users can know what companies would be able to do before and after accepting the contract.
+    \item \textbf{Blockchain security.} Data stored is cryptographically secured, making it really challenging for anyone to corrupt it. Hence, it ensures the integrity of user data.
+    \item \textbf{Transparency.} The transparent nature of blockchain allows you to verify how your data is used. All data interactions, known as transactions, are recorded on the public ledger.
+\end{itemize}
+
+{Besides that, dapps take advantage of blockchain consensus philosophy to erase the centralized control and trust problem:}
+\begin{itemize}
+    \item \textbf{Decentralization.} Dapps operate on decentralized networks, typically based on blockchain technology. This decentralization means there is no central authority or intermediary that holds control over the application or your data. Trust is distributed across the network rather than being concentrated in a single entity.
+    \item \textbf{Trustless Environment.} In a dapp, trust is not vested in a central authority. Instead, trust is established through the consensus mechanisms of the blockchain. Transactions are verified by a network of nodes, making it more challenging for any single entity to manipulate data or transactions.
+    \item \textbf{Censorship Resistance.} Dapps are resistant to censorship, ensuring that access to the application remains open and uncontrolled. The code that contains a smart contract is accessible to everyone always and cannot be changed so companies cannot make unilateral decisions if the contract does not allow it.
+
+\end{itemize}
+{By releasing the management and ownership of data to the users, dapps provide a more user-centric, accessible, secure, and transparent model. They erase the need for trust in a single entity and instead share the trust across a network. Therefore, users leverage the power of Web 3.0, the power to own their data on the Internet.}
+
+\subsubsection{Business case: Car insurance}
+{Once the benefits of dapps are introduced, we may think about a huge amount of real scenarios where this technology could improve significantly the user experience. For this experiment, I have chosen a regular task that almost everyone has to do at least once in his life: contract car insurance.
+
+The world of insurance has long been characterized by cumbersome policies, complex intermediaries, and, at times, a lack of transparency. However, the advent of blockchain technology has presented an opportunity to disrupt and revolutionize this industry, offering a new era of decentralized insurance applications. In this thesis, I explore the development and implications of a dapp designed for managing car insurance policies.
+
+As we look into the idea of building this dapp, there are a lot of processes that can be automated and trusted in the smart contract such as policy cancellation with corresponding payment refund, claims processing with third parties or policy renewal. I will compare how these regular procedures are streamlined thanks to the dapp approach and how it leaves behind the traditional insurance model.
+
+The motivation of this thesis is to highlight the contribution to the ongoing discourse about the transformation of the Internet through blockchain technology. By focusing on car insurance, an area with a wide audience, I aim to demonstrate the potential of dapps, not just as technological innovations but as a game changer for an industry that, for too long, has been defined by complexity, opaqueness, and a lack of understanding with intermediaries.}
+
+\subsection{Requirements and specifications}
+
+{In order to evaluate properly if the use of dapps truly can replace the current model I have developed an end-to-end scenario. To do so, the experiment requires the development of a frontend and a backend that shapes the whole dapp.
+
+The frontend part consists of a web application in order to make the dapp accessible to the policyholders. This platform acts as a bridge to offer the users the features of the backend.
+
+On the other side, the backend is divided into two parts. One consists of developing the smart contracts that are in charge of handling the policy business logic. In addition, I have developed a traditional backend server with a database to store all policy proposals before being purchased. 
+
+This whole scenario runs locally on my computer through a tool that simulates the blockchain network. Therefore, smart contracts can be widely tested and executed without spending real money.
+
+Although the whole experiment is developed on a standard laptop, there is a deep dive into the hardware requirements for deploying the dapp comparing the local and production scenarios in the appendix \ref{appendix:deployment-dapp}. 
+}
+
+\subsection{Work plan}
+
+\subsubsection{Tasks and milestones}
+
+{The development of this project has been divided into three stages: development of the smart contracts, development of the off-blockchain backend and database, and finally development of the frontend web application.}
+
+ {The first step was to implement the smart contracts. To do so, I took a course about Ethereum, Solidity, and smart contracts development. Once I acquired the basis of these technologies, I was able to start coding the contracts for policy creation and management.
+ At this point, the first milestone was achieved: Smart contracts were coded (\textit{Feature 1}) and I was able to deploy them locally and perform several operations:}
+ \begin{itemize}
+     \item The contracts were ready to receive transactions to create or cancel policies, which refunds instantly to the user.
+      \item We could retrieve the policy data just with the company and the client accounts.
+      \item We could report a claim as a client, and an external claim evaluator could approve or decline. If approved, it automatically pays the costs of the sinister.
+      \item Policies can perform all actions while they are within the activation period. Once the end date arrives, the user has to pay the renewal to reactive the policy and continue enjoying the policy coverage.
+ \end{itemize}
+ 
+ {Once the smart contracts were developed, I took another course about how to build a backend server with a database. Afterward, I was able to develop the backend app that allowed me to generate the proposals that could be turned into policies on the blockchain:
+ \begin{itemize}
+     \item The app was able to, given car specifications and driver data, offer a bunch of coverage types with the associated pricing per month (\textit{Feature 2}).
+     \item When the user wants to save a proposal with the selected coverage types it must be authenticated through his Ethereum address, this way, the proposals generated could be bound to the account and saved within the database (\textit{Feature 3}).
+     \item Once the user purchases a proposal, the address of the policy smart contract generated can be sent to the backend to identify which proposals have been finally converted (\textit{Feature 4}).
+ \end{itemize}
+ 
+ {Eventually, I developed the frontend application, where I could combine the app interface with both, the backend and the smart contracts and give sense to the whole decentralized app. These were the features released:}
+ \begin{itemize}
+     \item The user deals with an interface where it can be logged with his Ethereum account (\textit{Feature 5}).
+     \item The user can introduce his car specifications to obtain a list of coverage types with their price. He can select the desired configuration to include in the policy and generate a proposal (\textit{Feature 6}).
+     \item The user can access a dashboard where he can see the stored proposals. The proposal view displays all data stored in the database and served through the backend. The user can purchase the policy through his wallet (\textit{Feature 7}).
+     \item The user can access the dashboard with all policies purchased. At every policy page, all data is retrieved from the smart contracts. Users can cancel the policy and the proportional part of the premium paid (\textit{Feature 8}).
+     \item The last feature, which I did not have enough time to finish, was to connect the renewal and claim features from the \acrshort{ui} app to the smart contract (\textit{Feature 9}).
+ \end{itemize}
+
+\subsubsection{Gantt Diagram}
+\label{ssec:gantt}
+\begin{figure}[H]
+    \centering
+    %\includegraphics[width=13cm]{img/diagram_gantt.png}
+    \input{gantt_diagrama.tex}
+    \caption[Project's Gantt diagram]{\footnotesize{Gantt diagram of the project}}
+    \label{fig:gantt}
+\end{figure}
+
+\bigskip
+\subsubsection{Deviations from the initial plan}
+There were two features that I did not have enough time to implement from the frontend web application even though the smart contracts were ready to be consumed:
+\begin{itemize}
+    \item The first one is the policy renewal. The renewal logic on the smart contracts was implemented in the first stage. However, there was not any backend logic implemented to propose a renewal premium taking into account the claims amount and the depreciation of the vehicle, which is a more realistic feature. Therefore, I consider it an incomplete feature without the backend part which I had no time to develop.
+    \item The other one is the report of a claim. A sinister must have a third-party evaluator who qualifies the level of the incident and approves or declines the amount to refund. As I just have the client web app, I consider I would have to implement another app for the claim evaluators that also accesses the smart contracts and visualizes a list of claims. There, they can decide if the claim is approved or declined. This would be a great example of how smart contracts streamline communication with intermediaries since once the claim is approved, the smart contract immediately compensates the client with the appropriate amount which is implemented. Unfortunately, I consider developing this second web application requires too much extra time and the features cannot be closed.
+\end{itemize}}
